@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_number: 1
+  name: MyString
+  image: 1
+  value: 1
+  price: 1
+  starting_cost: 1
+  number_of_posts: 1
+
+two:
+  company_number: 1
+  name: MyString
+  image: 1
+  value: 1
+  price: 1
+  starting_cost: 1
+  number_of_posts: 1
