@@ -69,7 +69,7 @@ class AccountsController < ApplicationController
     @account = Account.find_by(email: params[:email])
     # if文の条件を&&とauthenticateメソッドを用いて書き換えてください
     if @account && @account.authenticate(params[:password])
-      session[:user_id] = @account.id
+      session[:account_id] = @account.id
       flash[:notice] = "ログインしました"
       redirect_to("/posts/index")
     else
@@ -81,7 +81,7 @@ class AccountsController < ApplicationController
   end
 
   def logout
-    session[:user_id] = nil
+    session[:account_id] = nil
     flash[:notice] = "ログアウトしました"
     redirect_to("/login")
   end
