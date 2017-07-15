@@ -1,5 +1,8 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_account, {only: [:index, :show, :edit, :update]}
+  before_action :ensure_correct_user, {only: [:edit, :update]}
+
 
   # GET /accounts
   # GET /accounts.json
@@ -58,6 +61,35 @@ class AccountsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to accounts_url, notice: 'Account was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def login
+    # メールアドレスのみを用いて、ユーザーを取得するように書き換えてください
+    @account = Account.find_by(email: params[:email])
+    # if文の条件を&&とauthenticateメソッドを用いて書き換えてください
+    if @account && @account.authenticate(params[:password])
+      session[:user_id] = @account.id
+      flash[:notice] = "ログインしました"
+      redirect_to("/posts/index")
+    else
+      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @email = params[:email]
+      @password = params[:password]
+      render("users/login_form")
+    end
+  end
+
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
+    redirect_to("/login")
+  end
+
+  def ensure_correct_account
+    if @current_account.id != params[:id].to_i
+      flash[:notice] = "権限がありません"
+      redirect_to("/posts/index")
     end
   end
 
