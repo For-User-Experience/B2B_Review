@@ -9,6 +9,34 @@
   </head>
 
   <body>
+    <header>
+      <div class="header-logo">
+        <%= link_to("ホーム", "/") %>
+      </div>
+      <ul class="header-menus">
+        <% if @current_account %>
+          <li>
+            <%= link_to(@current_account.name, "/users/#{@current_account.id}") %>
+          </li>
+          <li>
+            <%= link_to("評判を書く", "/posts/new") %>
+          </li>
+          <li>
+            <%= link_to("ログアウト", "/logout", {method: :post}) %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to("This sites is", "/about") %>
+          </li>
+          <li>
+            <%= link_to("新規登録", "/signup") %>
+          </li>
+          <li>
+            <%= link_to("ログイン", "/login") %>
+          </li>
+        <% end %>
+      </ul>
+    </header>
     <%= yield %>
   </body>
 </html>

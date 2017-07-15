@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>苗字</strong>
+  <%= @account.lastname %>
+  <strong>名前</strong>
+  <%= @account.firstname %>
+</p>
+
+<p>
+  <strong>法人番号</strong>
+  <%= @account.company_number %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @account.status %>
+</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>
