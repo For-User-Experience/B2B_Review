@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_id: MyString
+  service_id: MyString
+  valuation: MyString
+  review: 1
+
+two:
+  account_id: MyString
+  service_id: MyString
+  valuation: MyString
+  review: 1
