@@ -953,6 +953,7 @@ Processing by AccountsController#new as HTML
 Completed 200 OK in 35ms (Views: 25.3ms | ActiveRecord: 0.6ms)
 
 
+<<<<<<< HEAD
 Started GET "/accounts/new" for 127.0.0.1 at 2017-07-20 01:01:21 +0900
 Processing by AccountsController#new as HTML
   [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
@@ -1005,3 +1006,5 @@ Processing by AccountsController#show as HTML
 Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.2ms)
 
 
+=======
+>>>>>>> 449e27a567ef9fc1e21efc5b89df68ae2c3f83c4
